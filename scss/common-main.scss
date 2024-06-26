@@ -1,0 +1,855 @@
+@charset "UTF-8";
+
+@use "foundation";
+
+@use "global" as g;
+
+// common-main
+@include g.mq(pc_L) {
+  .__pc {
+    display: none;
+  }
+  .__tab {
+    display: none;
+  }
+  .__sp {
+    display: none;
+  }
+}
+
+@include g.mq(pc) {
+  .__pc {
+    display: inline-block;
+  }
+  .__tab {
+    display: none;
+  }
+  .__sp {
+    display: none;
+  }
+}
+
+@include g.mq(tab) {
+  .__pc {
+    display: none;
+  }
+  .__tab {
+    display: inline-block;
+  }
+  .__sp {
+    display: none;
+  }
+}
+
+@include g.mq(sp) {
+  .__pc {
+    display: none;
+  }
+  .__tab {
+    display: none;
+  }
+  .__sp {
+    display: inline-block;
+  }
+}
+
+.__inner {
+  width: 80%;
+  margin: 0 auto;
+  @include g.mq(pc) {
+    width: 90%;
+  }
+}
+
+.__inner__blog {
+  width: 70%;
+  margin: 0 auto;
+  @include g.mq(tab) {
+    width: 90%;
+  }
+}
+
+.__inner__news {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.__inner__blog-each {
+  width: 55%;
+  margin: 0 auto;
+  @include g.mq(tab) {
+    width: 75%;
+  }
+}
+
+.__section1 {
+  margin: 7.5% 0;
+}
+
+.__section2 {
+  margin: 3.5% 0;
+  @include g.mq(tab) {
+    margin: 5% 0;
+  }
+}
+
+.__section__bread {
+  margin: 2.5% 0;
+}
+
+.btn {
+  color: g.$cWhite;
+  background-color: g.$cBrand;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 11px;
+  @include g.mq(pc) {
+    padding: 8px 9px;
+  }
+  @include g.mq(tab) {
+    padding: 6px 7px;
+  }
+  & svg {
+    width: 25px;
+    height: 25px;
+    transform: rotate(90deg);
+    transition: transform 0.4s;
+
+    @include g.mq(pc) {
+      width: 20px;
+      height: 20px;
+    }
+    @include g.mq(tab) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.b-btn {
+  background-color: g.$cBlack;
+}
+
+.f-btn {
+  background-color: g.$cWhite;
+  color: g.$cBrand;
+  & svg {
+    width: 25px;
+    height: 25px;
+    transform: rotate(0deg);
+  }
+}
+
+// header
+.header {
+  &-wrap {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: g.$cBrand;
+    z-index: 100;
+    height: 100px;
+    box-shadow: 4px 4px 4px g.$cBlack-clear;
+    @include g.mq(tab) {
+      height: 80px;
+    }
+
+    &__logo {
+      padding-left: 2.5%;
+
+      @include g.mq(tab) {
+        padding-left: 3.5%;
+      }
+
+      & a {
+        & h1 {
+          font-size: 1.25rem;
+          color: g.$cWhite;
+          @include g.font-kaisei;
+          transition: all 0.5s;
+          transform: scale(1);
+          &:hover {
+            transform: scale(1.1);
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &__nav {
+      width: 55%;
+      margin-right: 1%;
+      // padding-right: 5%;
+      @include g.mq(pc) {
+        width: 65%;
+        // padding-right: 2.5%;
+      }
+      @include g.mq(tab) {
+        display: none;
+      }
+
+      &__list {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 6%;
+        margin-right: 10%;
+
+        &__item {
+          & a {
+            font-size: 1rem;
+            font-weight: 700;
+            display: block;
+            color: g.$cWhite;
+            position: relative;
+            &::after {
+              position: absolute;
+              content: "";
+              bottom: -7px;
+              left: 0;
+              width: 100%;
+              height: 2.5px;
+              background-color: g.$cWhite;
+              transform: scale(0, 1);
+              transform-origin: center top;
+              transition: all 0.3s;
+            }
+            &:hover::after {
+              transform: scale(1, 1);
+            }
+            @include g.mq(pc) {
+              font-size: 0.875rem;
+            }
+          }
+
+          &__contact {
+            // & .def-btn {
+            //   background-color: g.$cWhite;
+            //   color: g.$cBrand;
+            //   display: flex;
+            //   flex-direction: column;
+            //   font-size: 1rem;
+            //   gap: 5px;
+            //   width: 100%;
+            //   padding: 7.5% 25%;
+            //   margin-right: 2.5%;
+            //   position: relative;
+            //   overflow: hidden;
+            //   @include g.mq(pc) {
+            //     font-size: 0.875rem;
+            //   }
+            //   // &:hover {
+            //   //   opacity: 1;
+            //   //   background-color: g.$cYellow;
+            //   //   color: g.$cWhite;
+            //   // }
+            //   & span {
+            //     text-align: center;
+            //     position: relative;
+            //     z-index: 3;
+            //     & svg {
+            //       width: 1.5em;
+            //       height: 1.5em;
+            //     }
+            //   }
+            //   & p {
+            //     position: relative;
+            //     z-index: 3;
+            //   }
+            // }
+            // & .def-btn:hover {
+            //   // transition: ;
+            //   opacity: 1;
+            //   // background-color: g.$cYellow;
+            //   color: g.$cWhite;
+            // }
+            // & .bgleft::before {
+            //   position: absolute;
+            //   content: "";
+            //   top: 0;
+            //   left: 0;
+            //   width: 100%;
+            //   height: 100%;
+            //   background-color: g.$cYellow;
+            //   transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+            //   transform: scale(0, 1);
+            //   transform-origin: right top;
+            // }
+            // & .bgleft:hover::before {
+            //   transform-origin: left top;
+            //   transform: scale(1, 1);
+            // }
+          }
+        }
+      }
+    }
+  }
+}
+
+.def-btn {
+  background-color: g.$cWhite;
+  color: g.$cBrand;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  gap: 5px;
+  width: 100%;
+  padding: 7.5% 25%;
+  margin-right: 2.5%;
+  position: relative;
+  overflow: hidden;
+  @include g.mq(pc) {
+    font-size: 0.875rem;
+  }
+  // &:hover {
+  //   opacity: 1;
+  //   background-color: g.$cYellow;
+  //   color: g.$cWhite;
+  // }
+  & span {
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    & svg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+  & p {
+    position: relative;
+    z-index: 3;
+  }
+}
+.def-btn:hover {
+  // transition: ;
+  opacity: 1;
+  // background-color: g.$cYellow;
+  color: g.$cWhite;
+}
+.bgleft::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: g.$cYellow;
+  transition: transform 0.6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+  transform: scale(0, 1);
+  transform-origin: right top;
+}
+.bgleft:hover::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+.h-open {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  right: 3.5%;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  background-color: g.$cWhite;
+
+  & span {
+    display: inline-block;
+    transition: all 0.4s;
+    position: absolute;
+    left: 10px;
+    height: 2.5px;
+    border-radius: 2px;
+    background-color: g.$cBrand;
+
+    &:nth-of-type(1) {
+      top: 16px;
+      width: 55%;
+    }
+
+    &:nth-of-type(2) {
+      top: 30px;
+      width: 25%;
+    }
+  }
+
+  &.active span:nth-of-type(1) {
+    top: 16px;
+    left: 11px;
+    transform: translateY(6px) rotate(45deg);
+    width: 50%;
+  }
+
+  &.active span:nth-of-type(2) {
+    top: 28px;
+    left: 11px;
+    transform: translateY(-6px) rotate(-45deg);
+    width: 50%;
+  }
+  @include g.mq(tab) {
+    display: block;
+  }
+}
+
+#h-nav {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: -120%;
+  width: 50%;
+  height: 100vh;
+  background-color: g.$cBrand;
+  transition: all 0.6s;
+  @include g.mq(sp) {
+    width: 100%;
+  }
+
+  &__list__first {
+    position: absolute;
+    z-index: 999;
+    top: 3%;
+    left: 5%;
+    & li {
+      margin: 10% 15%;
+      width: 100%;
+
+      & a {
+        color: g.$cWhite;
+        font-size: 20px;
+        display: block;
+        transition: all 0.5s;
+        transform: scale(1);
+        &:hover {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        @include g.mq(sp) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+  &__list__second {
+    position: absolute;
+    z-index: 999;
+    top: 12.5%;
+    left: 17.5%;
+    // transform: translateY(-50%) translateX(-50%);
+
+    & li {
+      margin: 50% 0;
+      & a {
+        display: inline-block;
+        font-size: 20px;
+        color: g.$cWhite;
+        position: relative;
+        &::after {
+          position: absolute;
+          content: "";
+          bottom: -7px;
+          left: 0;
+          width: 100%;
+          height: 2.5px;
+          background-color: g.$cWhite;
+          transform: scale(0, 1);
+          transform-origin: center top;
+          transition: all 0.3s;
+        }
+        &:hover::after {
+          transform: scale(1, 1);
+        }
+        @include g.mq(sp) {
+          font-size: 16px;
+        }
+        &:before {
+          position: absolute;
+          content: "";
+          width: 2px;
+          height: 1em;
+          background-color: g.$cWhite;
+          left: -20px;
+        }
+      }
+    }
+  }
+  &__list__third {
+    position: absolute;
+    z-index: 999;
+    top: 45%;
+    left: 12%;
+    @include g.mq(sp) {
+      top: 50%;
+    }
+
+    & li {
+      & .def-btn {
+        // background-color: g.$cWhite;
+        // color: g.$cBrand;
+        // display: flex;
+        // flex-direction: column;
+        font-size: 1rem;
+        gap: 5px;
+        width: 100%;
+        padding: 7.5% 25%;
+        margin-right: 2.5%;
+        @include g.mq(pc) {
+          font-size: 0.875rem;
+        }
+        // &:hover {
+        //   opacity: 1;
+        //   background-color: g.$cYellow;
+        //   color: g.$cWhite;
+        // }
+        // & span {
+        //   text-align: center;
+        //   & svg {
+        //     width: 1.5em;
+        //     height: 1.5em;
+        //   }
+        // }
+      }
+    }
+  }
+}
+
+#h-nav.panelactive {
+  right: 0;
+}
+
+.s-ttl {
+  font-size: g.$font-20-48;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: g.$cBlack;
+    bottom: 40%;
+    left: 120%;
+    @include g.mq(tab) {
+      width: 30px;
+      left: 110%;
+    }
+  }
+  &.__second {
+    display: inline-block;
+    &::after {
+      left: 110%;
+    }
+  }
+}
+
+.footer {
+  background-color: g.$cBrand;
+  padding: 5% 0 2.5%;
+  @include g.mq(tab) {
+    padding: 7.5% 0 3.75%;
+  }
+  @include g.mq(sp) {
+    padding: 10% 0 5%;
+  }
+  &-wrap {
+    @include g.mq(sp) {
+      width: 85%;
+    }
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      &__logo {
+        & a {
+          color: g.$cWhite;
+          font-size: g.$font-16-24;
+          display: inline-block;
+          @include g.font-kaisei;
+          transition: all 0.5s;
+          transform: scale(1);
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+      &__contact {
+        & .def-btn {
+          // color: g.$cBrand;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 5px;
+          width: 180px;
+          padding: 5% 18%;
+          box-sizing: border-box;
+          // background-color: g.$cWhite;
+          white-space: nowrap;
+          @include g.mq(pc) {
+            width: 20vw;
+          }
+          @include g.mq(tab) {
+            width: 25vw;
+          }
+          @include g.mq(sp) {
+            width: 30vw;
+            // padding: 7.5% 22%;
+          }
+          // &:hover {
+          //   opacity: 1;
+          //   color: g.$cWhite;
+          //   background-color: g.$cYellow;
+          // }
+          & span {
+            & svg {
+              width: 2em;
+              height: 2em;
+              @include g.mq(tab) {
+                width: 1.5em;
+                height: 1.5em;
+              }
+              @include g.mq(sp) {
+                width: 1.2em;
+                height: 1.2em;
+              }
+            }
+          }
+          & p {
+            font-size: g.$font-12-16;
+          }
+        }
+      }
+    }
+    &__bottom {
+      display: flex;
+      margin: -0.5% 0 0;
+      @include g.mq(tab) {
+        margin: 5% 0 0;
+      }
+      @include g.mq(sp) {
+        flex-wrap: wrap;
+        // justify-content: space-evenly;
+      }
+      &__list {
+        width: 22.5%;
+        @include g.mq(pc) {
+          width: 25%;
+        }
+        @include g.mq(tab) {
+          width: 35.5%;
+        }
+        @include g.mq(sp) {
+          width: 65%;
+        }
+        &.__second {
+          width: 20%;
+          @include g.mq(tab) {
+            width: 25%;
+          }
+          @include g.mq(sp) {
+            width: 29%;
+            margin-top: 17.5%;
+          }
+        }
+        &.__third {
+          width: 15%;
+          @include g.mq(tab) {
+            width: 20%;
+          }
+          @include g.mq(sp) {
+            width: 65%;
+          }
+        }
+        &.__fourth {
+          width: 15%;
+          @include g.mq(sp) {
+            width: 23%;
+          }
+        }
+        & a {
+          color: g.$cWhite;
+        }
+        &__item {
+          margin-bottom: 20%;
+          & a {
+            font-size: g.$font-12-16;
+          }
+          > a {
+            position: relative;
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -5px;
+              left: 0;
+              width: 100%;
+              height: 2.5px;
+              background: g.$cWhite;
+              /* アニメーションの指定 */
+              transition: all 0.3s;
+              transform: scale(0, 1); /* X方向0、Y方向1 */
+              transform-origin: center top; /* 上部中央基点 */
+            }
+            &:hover::after {
+              transform: scale(1, 1);
+            }
+          }
+          &__sub {
+            &__item {
+              margin: 5% 0 0;
+              &:nth-of-type(1) {
+                margin-top: 10%;
+              }
+              @include g.mq(sp) {
+                margin-top: 1vh;
+                &:nth-of-type(1) {
+                  margin-top: 1.5vh;
+                }
+              }
+              & a {
+                font-size: g.$font-10-14;
+                &:hover {
+                  opacity: 0.7;
+                }
+                &::before {
+                  content: ">";
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &__btn {
+      display: flex;
+      justify-content: flex-end;
+      &__txt {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        cursor: pointer;
+        gap: 10px;
+        margin-top: -10%;
+        &:hover {
+          & svg {
+            transform: translateY(-20%);
+          }
+        }
+        @include g.mq(sp) {
+          margin-top: 0;
+        }
+        & p {
+          font-size: g.$font-11-16;
+          color: g.$cWhite;
+          margin-bottom: 0.5%;
+        }
+      }
+    }
+    &__copyright {
+      text-align: center;
+      margin-top: 10%;
+      & small {
+        color: g.$cWhite;
+        font-size: g.$font-10-12;
+      }
+    }
+  }
+}
+
+/* フェードアップのスタイル */
+.fadeUp {
+  animation: fadeUpAnime 0.8s forwards; /* fadeUpAnimeを0.8秒で一回実行 */
+  opacity: 0;
+}
+
+/* フェードレフトのスタイル */
+.fadeLeft {
+  animation: fadeLeftAnime 0.8s forwards; /* fadeLeftAnimeを0.8秒で一回実行 */
+  opacity: 0;
+  overflow: hidden;
+}
+
+.fadeRight_2 {
+  animation: fadeRightAnime2 0.8s forwards; /* fadeLeftAnimeを0.8秒で一回実行 */
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* フェードライトのスタイル */
+.fadeRight {
+  animation: fadeRightAnime 0.8s forwards; /* fadeRightAnimeを0.8秒で一回実行 */
+  opacity: 0;
+  overflow: hidden;
+}
+
+/* トリガーアニメーションのスタイル */
+.fadeUpTrigger,
+.fadeLeftTrigger,
+.fadeRightTrigger,
+.fadeRightTrigger2 {
+  opacity: 0; /* 最初は非表示 */
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0; /* 最初は非表示 */
+    transform: translateY(100px); /* 100px下に動かす */
+  }
+  to {
+    opacity: 1; /* 可視化する */
+    transform: translateY(0); /* 元の位置に戻す */
+  }
+}
+
+@keyframes fadeLeftAnime {
+  from {
+    opacity: 0; /* 最初は非表示 */
+    transform: translateX(15px); /* 100px右に動かす */
+  }
+  to {
+    opacity: 1; /* 可視化する */
+    transform: translateX(0); /* 元の位置に戻す */
+  }
+}
+
+@keyframes fadeRightAnime2 {
+  from {
+    opacity: 0;
+    transform: translateX(-70%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeRightAnime {
+  from {
+    opacity: 0; /* 最初は非表示 */
+    transform: translateX(-15px); /* 100px左に動かす */
+  }
+  to {
+    opacity: 1; /* 可視化する */
+    transform: translateX(0); /* 元の位置に戻す */
+  }
+}
+
+.fadeRotate {
+  animation: fadeRotateAnime 0.8s forwards; /* fadeUpAnimeを0.8秒で一回実行 */
+  opacity: 0;
+}
+
+.fadeRotateTrigger {
+  opacity: 0;
+}
+
+@keyframes fadeRotateAnime {
+  from {
+    opacity: 0;
+    transform: rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0);
+  }
+}
